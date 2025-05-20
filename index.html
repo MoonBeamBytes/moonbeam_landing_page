@@ -25,68 +25,65 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
 
     .logo {
-      width: 50vw;
-      max-width: 600px;
-      filter: drop-shadow(0 0 20px #9400ff) brightness(1.2);
-      margin-bottom: 40px;
+      max-width: 25vw;
+      height: auto;
+      margin-bottom: 2vw;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
     }
 
     h1 {
-      text-shadow: 0 0 10px #9400ff;
       font-size: 3vw;
-      margin-bottom: 10px;
-      text-align: center;
+      margin-bottom: 1vw;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     }
 
     p {
-      font-size: 1.3vw;
-      margin-bottom: 30px;
-      text-align: center;
+      font-size: 1.6vw;
+      margin-bottom: 2vw;
+      max-width: 60vw;
     }
 
-    form {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2vw;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #00ffff88;
-      text-align: center;
-      width: 80%;
-      max-width: 500px;
-    }
-
-    input[type="email"] {
-      padding: 12px;
-      width: 100%;
-      margin-bottom: 20px;
+    form input[type="email"] {
+      padding: 1vw;
+      font-size: 1.2vw;
+      width: 60vw;
+      max-width: 400px;
       border: none;
       border-radius: 5px;
-      font-size: 1em;
+      margin-bottom: 1vw;
     }
 
-    button {
-      background-color: #9400ff;
+    form button {
+      padding: 1vw 2vw;
+      font-size: 1.2vw;
+      border: none;
+      border-radius: 5px;
+      background-color: #8e44ff;
       color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1em;
-      border-radius: 5px;
       cursor: pointer;
-      text-transform: uppercase;
-      box-shadow: 0 0 10px #9400ffaa;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #a56eff;
     }
 
     .notice {
-      margin-top: 20px;
-      font-size: 0.9em;
-      color: #ccc;
+      font-size: 1vw;
+      margin-top: 2vw;
+      color: #ddd;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       h1 { font-size: 6vw; }
-      p { font-size: 3.5vw; }
+      p { font-size: 4vw; }
+      form input[type="email"],
+      form button { font-size: 4vw; width: 80vw; }
+      .notice { font-size: 3vw; }
     }
   </style>
 </head>
@@ -96,15 +93,23 @@
     <h1>Join the Beta Tester List</h1>
     <p>Sign up to test upcoming Android games from MoonBeamBytes.</p>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGp3hxWiNq9u0O-eHZxtwrwNknq3mgyyqsVIlKT5MtIFydZQ/viewform?usp=dialog" target="_blank">
-      <button type="button">Request Access</button>
-    </a>
-
+    <form action="https://script.google.com/macros/s/AKfycbygTzwXjTh1xgIhrKfMJH7sqDmiEUOWwi5RW31p4rT2uDFlgi2VCNJX1r03cT44ETjz/exec" method="POST" onsubmit="redirectThankYou(); return true;">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <br>
+      <button type="submit">Request Access</button>
+    </form>
 
     <div class="notice">
       Please allow up to 24 hours for your beta invite.
     </div>
   </div>
+
+  <script>
+    function redirectThankYou() {
+      setTimeout(() => {
+        window.location.href = "https://moonbeambytes.github.io/moonbeam_landing_page/thanks.html";
+      }, 200);
+    }
+  </script>
 </body>
 </html>
-
