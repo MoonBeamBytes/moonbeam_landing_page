@@ -14,13 +14,13 @@
       font-family: 'Orbitron', sans-serif;
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
+      color: #ffffff;
     }
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.5);
       min-height: 100vh;
-      padding: 40px;
+      padding: 5vw;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -28,27 +28,33 @@
     }
 
     .logo {
-      width: 300px;
-      margin-bottom: 20px;
+      width: 50vw;
+      max-width: 600px;
+      filter: drop-shadow(0 0 20px #9400ff) brightness(1.2);
+      margin-bottom: 40px;
     }
 
     h1 {
       text-shadow: 0 0 10px #9400ff;
-      font-size: 2.5em;
+      font-size: 3vw;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     p {
-      font-size: 1.1em;
+      font-size: 1.3vw;
       margin-bottom: 30px;
+      text-align: center;
     }
 
     form {
       background: rgba(0, 0, 0, 0.6);
-      padding: 20px 30px;
+      padding: 2vw;
       border-radius: 10px;
-      box-shadow: 0 0 20px #00ffff55;
+      box-shadow: 0 0 20px #00ffff88;
       text-align: center;
+      width: 80%;
+      max-width: 500px;
     }
 
     input[type="email"] {
@@ -69,12 +75,18 @@
       border-radius: 5px;
       cursor: pointer;
       text-transform: uppercase;
+      box-shadow: 0 0 10px #9400ffaa;
     }
 
     .notice {
       margin-top: 20px;
       font-size: 0.9em;
       color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 6vw; }
+      p { font-size: 3.5vw; }
     }
   </style>
 </head>
