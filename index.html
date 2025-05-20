@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoonBeamBytes Beta Signup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      min-height: 100vh;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      text-shadow: 0 0 10px #9400ff;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffff55;
+      text-align: center;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #9400ff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .notice {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <img src="logo.png" alt="MoonBeamBytes Logo" class="logo">
+    <h1>Join the Beta Tester List</h1>
+    <p>Sign up to test upcoming Android games from MoonBeamBytes.</p>
+
+    <form action="https://formspree.io/f/xzzrwoyz" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <br>
+      <button type="submit">Request Access</button>
+    </form>
+
+    <div class="notice">
+      Please allow up to 24 hours for your beta invite.
+    </div>
+  </div>
+</body>
+</html>
