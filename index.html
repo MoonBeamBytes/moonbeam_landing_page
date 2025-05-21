@@ -59,42 +59,19 @@
     <h1>Join the Beta Tester List</h1>
     <p>Sign up to test upcoming Android games from MoonBeamBytes.</p>
 
-    <!-- Form uses JS fetch() -->
-    <form id="signup-form">
+    <form action="https://script.google.com/macros/s/AKfycbzEv4qQ3-g_J1KNuZJhkpTzAS6EWzL_aAzFQQVXl5SafO03P-JLji1bgsIEF8Uu_JPQ/exec" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required>
-      <br>
       <button type="submit">Request Access</button>
     </form>
+
+    
 
     <div class="notice">
       Please allow up to 24 hours for your beta invite.
     </div>
   </div>
 
-  <!-- JavaScript handles the form submission -->
-  <script>
-    const form = document.getElementById('signup-form');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      fetch("https://script.google.com/macros/s/AKfycbzEv4qQ3-g_J1KNuZJhkpTzAS6EWzL_aAzFQQVXl5SafO03P-JLji1bgsIEF8Uu_JPQ/exec", {
-        method: "POST",
-        body: formData
-      })
-      .then(res => res.text())
-      .then(data => {
-        console.log("Submission response:", data);
-        window.location.href = "https://moonbeambytes.github.io/moonbeam_landing_page/thanks.html";
-      })
-      .catch(err => {
-        console.error("Error submitting form:", err);
-        alert("Something went wrong. Please try again later.");
-      });
-    });
-  </script>
+  
 </body>
 </html>
 
