@@ -118,31 +118,6 @@
     </div>
   </div>
 
-  <script>
-    const form = document.getElementById('signup-form');
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      fetch("https://script.google.com/macros/s/AKfycbzEv4qQ3-g_J1KNuZJhkpTzAS6EWzL_aAzFQQVXl5SafO03P-JLji1bgsIEF8Uu_JPQ/exec", {
-        method: "POST",
-        body: formData
-      })
-      .then(res => res.text())
-      .then(data => {
-        if (data.trim() === "success") {
-          window.location.href = "https://moonbeambytes.github.io/moonbeam_landing_page/thanks.html";
-        } else {
-          alert("Something went wrong. Please try again later.");
-        }
-      })
-      .catch(err => {
-        console.error("Submission failed:", err);
-        alert("Something went wrong. Please try again later.");
-      });
-    });
-  </script>
 </body>
 </html>
