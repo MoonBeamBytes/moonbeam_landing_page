@@ -1,95 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>MoonBeamBytes Beta Signup</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #ffffff;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.6);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 5vw;
+      padding: 3em;
+      border-radius: 10px;
       text-align: center;
     }
 
-    .logo {
-      width: 200px;
-      margin-bottom: 2vh;
-      filter: drop-shadow(0 0 10px #a366ff);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px #a366ff;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
     input[type="email"] {
-      padding: 10px;
-      font-size: 1rem;
-      border: none;
+      padding: 0.8em;
+      font-size: 1em;
       border-radius: 5px;
+      border: none;
+      margin-bottom: 1em;
       width: 80%;
-      max-width: 400px;
-      margin-bottom: 10px;
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      background-color: #a366ff;
-      color: #fff;
+      padding: 0.8em 2em;
+      font-size: 1em;
+      background-color: #8a2be2;
       border: none;
+      color: white;
       border-radius: 5px;
       cursor: pointer;
     }
 
-    .notice {
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    button:hover {
+      background-color: #a64bf4;
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      p, .notice { font-size: 1rem; }
+    .notice {
+      margin-top: 1em;
+      font-size: 0.9em;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <img src="logo.png" alt="MoonBeamBytes Logo" class="logo">
     <h1>Join the Beta Tester List</h1>
     <p>Sign up to test upcoming Android games from MoonBeamBytes.</p>
 
-    <form action="https://script.google.com/macros/s/AKfycbwLP_sBVArkn7u9Q1ISCff19ohI-iSkIR-hOL-hFn_R6D-vsHPWPZSgb00FXpMzPgFB/exec" method="POST">
-      <input type="hidden" name="_redirect" value="https://moonbeambytes.github.io/moonbeam_landing_page/thanks.html">
-      <input type="email" name="email" placeholder="Enter your email" required>
+    <form id="signup-form">
+      <input type="email" name="email" id="email" placeholder="Enter your email" required>
       <br>
       <button type="submit">Request Access</button>
     </form>
-
 
     <div class="notice">
       Please allow up to 24 hours for your beta invite.
@@ -104,17 +78,21 @@
 
       const formData = new FormData(form);
 
-      fetch("https://script.google.com/macros/s/AKfycbwLP_sBVArkn7u9Q1ISCff19ohI-iSkIR-hOL-hFn_R6D-vsHPWPZSgb00FXpMzPgFB/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzEv4qQ3-g_J1KNuZJhkpTzAS6EWzL_aAzFQQVXl5SafO03P-JLji1bgsIEF8Uu_JPQ/exec", {
         method: "POST",
         body: formData
       })
       .then(res => res.text())
       .then(data => {
-        console.log("Submitted successfully:", data);
-        window.location.href = "https://moonbeambytes.github.io/moonbeam_landing_page/thanks.html";
+        console.log("Server responded:", data);
+        if (data.trim() === "success") {
+          window.location.href = "https://moonbeambytes.github.io/moonbeam_landing_page/thanks.html";
+        } else {
+          alert("Submission failed. Please try again.");
+        }
       })
       .catch(err => {
-        console.error("Submission failed:", err);
+        console.error("Error submitting form:", err);
         alert("Something went wrong. Please try again later.");
       });
     });
